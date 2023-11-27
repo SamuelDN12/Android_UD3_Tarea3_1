@@ -1,0 +1,54 @@
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <PreferenceCategory app:title="@string/pref_titulo_juego">
+
+        <ListPreference
+            app:defaultValue="reply"
+            app:entries="@array/reply_entries"
+            app:entryValues="@array/reply_values"
+            app:key="dificultad"
+            app:summary="@string/notSelected"
+            app:title="@string/tv_dificultadLabel"
+            app:useSimpleSummaryProvider="true" />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory app:title="@string/pref_titulo_bd">
+
+        <SwitchPreferenceCompat
+            app:key="bbdd"
+            app:icon="@mipmap/ic_bbdd"
+            app:summaryOff="@string/bd_summary_of"
+            app:summaryOn="@string/bd_summary_on"
+            app:title="@string/bd_title" />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        app:title="@string/pref_titulo_server"
+        app:dependency="bbdd"
+    >
+
+        <EditTextPreference
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:key="nombre_bd"
+            android:icon="@mipmap/ic_pencil"
+            android:singleLine="true"
+            android:summary="root"
+            app:useSimpleSummaryProvider="true"
+            android:title="@string/edit_nombreBd" />
+        <EditTextPreference
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:key="ip"
+            android:icon="@mipmap/ic_www"
+            android:singleLine="true"
+            android:summary="0.0.0.0"
+            app:useSimpleSummaryProvider="true"
+            android:title="@string/edit_ipServer" />
+
+    </PreferenceCategory>
+
+</PreferenceScreen>
